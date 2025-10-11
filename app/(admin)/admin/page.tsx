@@ -14,7 +14,6 @@ interface DashboardStats {
   totalEnrollments: number
   publishedCourses: number
   draftCourses: number
-  revenue: number
   enrollmentGrowth: number
   enrollmentsLast30Days: number
   recentCourses: Array<{
@@ -167,14 +166,7 @@ export default function AdminDashboard() {
               color: "text-purple-500",
               gradient: "from-purple-100 to-indigo-100"
             },
-            { 
-              title: "Revenue", 
-              value: formatCurrency(stats.revenue), 
-              description: "Total earnings", 
-              icon: DollarSign, 
-              color: "text-green-500",
-              gradient: "from-green-100 to-emerald-100"
-            }
+            // Revenue removed because all courses are free
           ].map((stat, index) => (
             <motion.div
               key={stat.title}

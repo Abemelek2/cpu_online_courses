@@ -7,6 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Eye, Edit, Trash2, Plus, BookOpen, Users, Clock, TrendingUp, Search, Filter } from 'lucide-react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import ClientImage from '@/components/ClientImage'
 import { useEffect, useState } from 'react'
 
 interface Course {
@@ -317,15 +318,7 @@ export default function CoursesPage() {
                               whileHover={{ scale: 1.05, rotate: 2 }}
                               transition={{ type: "spring", stiffness: 400, damping: 17 }}
                             >
-                              {course.thumbnailUrl ? (
-                                <img 
-                                  src={course.thumbnailUrl} 
-                                  alt={course.title}
-                                  className="w-full h-full object-cover rounded-2xl"
-                                />
-                              ) : (
-                                <BookOpen className="w-8 h-8 text-orange-400" />
-                              )}
+                              <ClientImage src={course.thumbnailUrl} alt={course.title} className="w-full h-full object-cover rounded-2xl" />
                             </motion.div>
                             <div>
                               <p className="font-semibold text-gray-900">{course.title}</p>

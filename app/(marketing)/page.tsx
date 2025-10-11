@@ -649,7 +649,7 @@ export default function HomePage() {
               Start Learning Today
             </h2>
             <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
-              Join over 100,000 students who are already advancing their careers with CPU Online
+              Join over 100,000 students who are already advancing their careers with CPU Online Courses
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div

@@ -7,6 +7,7 @@ import { Separator } from '@/components/ui/separator'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Star, Users, Clock, Play, BookOpen, Award } from 'lucide-react'
 import { motion } from 'framer-motion'
+import ClientImage from '@/components/ClientImage'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ReviewForm } from '@/components/course/ReviewForm'
@@ -173,17 +174,7 @@ export default function CoursePage() {
               transition={{ duration: 0.6 }}
             >
               <div className="aspect-video bg-gray-200 rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden">
-                {course.thumbnailUrl ? (
-                  <img 
-                    src={course.thumbnailUrl} 
-                    alt={course.title}
-                    className="w-full h-full object-cover rounded-2xl transition-transform duration-300 hover:scale-105"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center">
-                    <Play className="w-16 h-16 text-orange-400" />
-                  </div>
-                )}
+                <ClientImage src={course.thumbnailUrl ?? undefined} alt={course.title} className="w-full h-full object-cover rounded-2xl transition-transform duration-300 hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
               </div>
               
@@ -375,9 +366,9 @@ export default function CoursePage() {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
             >
               <Card className="sticky top-8 glass">
                 <CardHeader>
@@ -386,9 +377,7 @@ export default function CoursePage() {
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
-                    <CardTitle className="text-2xl gradient-primary bg-clip-text text-transparent">
-                      ${(course.priceCents / 100).toFixed(2)}
-                    </CardTitle>
+                    {/* price removed for free courses */}
                     <CardDescription>
                       {course.isEnrolled ? 'You are enrolled in this course' : 'Enroll now and start learning immediately'}
                     </CardDescription>

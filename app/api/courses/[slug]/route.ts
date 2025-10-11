@@ -112,13 +112,14 @@ export async function PATCH(
     const data = await req.json()
     const resolvedParams = await params
 
+    // Ensure courses remain free
     const course = await prisma.course.update({
       where: { slug: resolvedParams.slug },
       data: {
         title: data.title,
         subtitle: data.subtitle,
         description: data.description,
-        priceCents: data.priceCents,
+        priceCents: 0,
         status: data.status,
         thumbnailUrl: data.thumbnailUrl,
         category: data.category,

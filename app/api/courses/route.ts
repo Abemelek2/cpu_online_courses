@@ -32,13 +32,14 @@ export async function POST(req: NextRequest) {
 
     const data = await req.json()
 
+    // Force free courses: priceCents always 0
     const course = await prisma.course.create({
       data: {
         slug: data.slug,
         title: data.title,
         subtitle: data.subtitle,
         description: data.description,
-        priceCents: data.priceCents ?? 0,
+        priceCents: 0,
         status: data.status ?? 'DRAFT',
         thumbnailUrl: data.thumbnailUrl,
         category: data.category,

@@ -9,6 +9,7 @@ import { Search, Filter, Star, Users, Clock, Play, BookOpen, Award, TrendingUp }
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import ClientImage from '@/components/ClientImage'
 
 interface Course {
   id: string
@@ -266,8 +267,6 @@ export default function CatalogPage() {
                   <SelectItem value="popularity">Popularity</SelectItem>
                   <SelectItem value="rating">Rating</SelectItem>
                   <SelectItem value="newest">Newest</SelectItem>
-                  <SelectItem value="price-low">Price: Low to High</SelectItem>
-                  <SelectItem value="price-high">Price: High to Low</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -309,17 +308,8 @@ export default function CatalogPage() {
               <Card className="overflow-hidden glass border-0 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl">
                 {/* Course Thumbnail */}
                 <div className="relative aspect-video overflow-hidden">
-                  {course.thumbnailUrl ? (
-                    <img 
-                      src={course.thumbnailUrl} 
-                      alt={course.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center">
-                      <BookOpen className="w-12 h-12 text-orange-400" />
-                    </div>
-                  )}
+                  {/* Image fallback handled by ClientImage (client component) */}
+                  <ClientImage src={course.thumbnailUrl} alt={course.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   {/* Category Badge */}
@@ -369,11 +359,7 @@ export default function CatalogPage() {
                     </div>
                   )}
 
-                  {/* Price */}
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-2xl font-bold text-purple-600">
-                      ${(course.priceCents / 100).toFixed(2)}
-                    </span>
+                  <div className="flex items-center justify-end mb-3">
                     <Badge variant="secondary" className="text-xs">
                       {course.level}
                     </Badge>

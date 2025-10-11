@@ -1,6 +1,6 @@
-# Course Platform (course_site1)
+# CPU Online Courses (course_site1)
 
-A full-stack course platform built with Next.js (App Router), Prisma, PostgreSQL, Supabase, and NextAuth. It provides course creation and management, lessons with video playback, student enrollment and progress tracking, review system, and an admin UI. The project is implemented in TypeScript and uses Tailwind/Radix UI primitives and numerous utility libraries for forms, validation, and animations.
+A full-stack course platform ("CPU Online Courses") built with Next.js (App Router), Prisma, PostgreSQL, Supabase, and NextAuth. It provides course creation and management, lessons with video playback, student enrollment and progress tracking, review system, and an admin UI. The project is implemented in TypeScript and uses Tailwind/Radix UI primitives and numerous utility libraries for forms, validation, and animations.
 
 ---
 

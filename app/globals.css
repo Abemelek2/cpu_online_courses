@@ -72,20 +72,20 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.98 0.01 30);
-  --foreground: oklch(0.15 0.02 30);
+  --background: #F8FAFC; /* light neutral background */
+  --foreground: #0F172A; /* dark slate text */
   --card: oklch(1.0000 0 0);
   --card-foreground: oklch(0.15 0.02 30);
   --popover: oklch(0.98 0.01 30);
   --popover-foreground: oklch(0.15 0.02 30);
-  --primary: oklch(0.65 0.20 15);
-  --primary-foreground: oklch(1.0000 0 0);
+  --primary: #0b5cff; /* academic blue */
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.95 0.02 30);
   --secondary-foreground: oklch(0.15 0.02 30);
   --muted: oklch(0.96 0.01 30);
   --muted-foreground: oklch(0.45 0.02 30);
-  --accent: oklch(0.70 0.15 180);
-  --accent-foreground: oklch(1.0000 0 0);
+  --accent: #0ea5a8; /* teal accent */
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.55 0.22 20);
   --border: oklch(0.90 0.01 30);
   --input: oklch(0.95 0.01 30);
@@ -104,10 +104,10 @@
   --sidebar-border: oklch(0.90 0.01 30);
   --sidebar-ring: oklch(0.65 0.20 15);
   --destructive-foreground: oklch(1.0000 0 0);
-          --font-sans: Montserrat, sans-serif;
-          --font-serif: 'Playfair Display', 'Times New Roman', serif;
+          --font-sans: Inter, Montserrat, sans-serif;
+          --font-serif: 'Merriweather', 'Playfair Display', serif;
           --font-mono: Fira Code, monospace;
-          --font-hero: 'Playfair Display', 'Times New Roman', serif;
+          --font-hero: 'Merriweather', 'Playfair Display', serif;
   --shadow-color: hsl(15 30% 25%);
   --shadow-opacity: 0.08;
   --shadow-blur: 8px;
@@ -201,25 +201,25 @@
     overflow: hidden;
   }
 
-  /* Gradient backgrounds */
+  /* Gradient backgrounds - professional educational palette */
   .gradient-primary {
-    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
+    background: linear-gradient(135deg, #0F172A 0%, #0B1220 100%); /* deep navy for hero accents */
   }
-  
+
   .gradient-secondary {
-    background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+    background: linear-gradient(135deg, #0ea5a8 0%, #0284c7 100%); /* teal-blue academic accent */
   }
-  
+
   .gradient-accent {
-    background: linear-gradient(135deg, #14B8A6 0%, #06B6D4 100%);
+    background: linear-gradient(135deg, #2b6cb0 0%, #2c5282 100%); /* professional blue */
   }
-  
+
   .gradient-warm {
-    background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+    background: linear-gradient(135deg, #FBFBFD 0%, #F3F4F6 100%);
   }
-  
+
   .gradient-cool {
-    background: linear-gradient(135deg, #E0F2FE 0%, #F0F9FF 100%);
+    background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
   }
 
   /* Animation utilities */

@@ -51,21 +51,7 @@ export async function GET(request: NextRequest) {
       })
     ])
 
-    // Calculate revenue (sum of course.priceCents for each enrollment).
-    // Prisma cannot aggregate a related model field directly inside enrollment.aggregate,
-    // so we fetch recent enrollments with their course price and sum in JavaScript.
-    const allEnrollmentsWithCourse = await prisma.enrollment.findMany({
-      select: {
-        id: true,
-        course: {
-          select: { priceCents: true }
-        }
-      }
-    })
-
-    const revenueCents = allEnrollmentsWithCourse.reduce((sum, en) => {
-      return sum + (en.course?.priceCents ?? 0)
-    }, 0)
+    // Revenue removed: all courses are free
 
     // Get course categories distribution
     const categoryStats = await prisma.course.groupBy({
@@ -110,8 +96,7 @@ export async function GET(request: NextRequest) {
       totalUsers,
       totalEnrollments,
       publishedCourses,
-      draftCourses,
-  revenue: revenueCents,
+    draftCourses,
       recentCourses: recentCourses.map(course => ({
         id: course.id,
         title: course.title,

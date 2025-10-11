@@ -162,7 +162,7 @@ async function main() {
         title: 'Complete CPU Architecture Masterclass',
         subtitle: 'From microprocessors to advanced computer systems',
         description: 'Master the fundamentals of CPU design, instruction sets, and computer architecture. Learn about modern processors, pipelining, caching, and performance optimization.',
-        priceCents: 8999, // $89.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
         category: 'Computer Architecture',
@@ -178,7 +178,7 @@ async function main() {
         title: 'ARM Processor Fundamentals',
         subtitle: 'Learn ARM assembly and embedded systems programming',
         description: 'Comprehensive guide to ARM architecture, assembly language programming, and embedded systems development. Perfect for mobile and IoT development.',
-        priceCents: 6999, // $69.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
         category: 'Embedded Systems',
@@ -194,7 +194,7 @@ async function main() {
         title: 'x86 Assembly Language Programming',
         subtitle: 'Master low-level programming and system optimization',
         description: 'Learn x86 assembly language from scratch. Understand registers, memory management, and system-level programming for maximum performance.',
-        priceCents: 7999, // $79.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
         category: 'Assembly Programming',
@@ -210,7 +210,7 @@ async function main() {
         title: 'Microcontroller Programming with Arduino',
         subtitle: 'Build real-world embedded projects',
         description: 'Learn microcontroller programming using Arduino. Build IoT devices, sensors, and automation systems with hands-on projects.',
-        priceCents: 4999, // $49.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
         category: 'Microcontrollers',
@@ -226,7 +226,7 @@ async function main() {
         title: 'RISC-V Architecture and Implementation',
         subtitle: 'Open-source processor design and development',
         description: 'Explore RISC-V open-source instruction set architecture. Learn processor design, verification, and implementation techniques.',
-        priceCents: 9999, // $99.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
         category: 'Computer Architecture',
@@ -242,7 +242,7 @@ async function main() {
         title: 'Computer Organization and Design',
         subtitle: 'Understanding how computers work at the hardware level',
         description: 'Deep dive into computer organization, memory hierarchy, I/O systems, and performance analysis. Essential for system programmers.',
-        priceCents: 8999, // $89.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
         category: 'Computer Organization',
@@ -258,7 +258,7 @@ async function main() {
         title: 'Digital Design and FPGA Programming',
         subtitle: 'Hardware design using Verilog and FPGAs',
         description: 'Learn digital circuit design using Verilog HDL and FPGA programming. Build custom processors and digital systems.',
-        priceCents: 11999, // $119.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
         category: 'Digital Design',
@@ -274,7 +274,7 @@ async function main() {
         title: 'System Programming and OS Internals',
         subtitle: 'Low-level programming and operating system concepts',
         description: 'Master system programming, kernel development, and operating system internals. Learn about processes, threads, and memory management.',
-        priceCents: 9999, // $99.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
         category: 'System Programming',
@@ -290,7 +290,7 @@ async function main() {
         title: 'Performance Optimization and Profiling',
         subtitle: 'Maximize system performance through optimization',
         description: 'Learn advanced performance optimization techniques, profiling tools, and benchmarking. Optimize both hardware and software performance.',
-        priceCents: 7999, // $79.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
         category: 'Performance Optimization',
@@ -306,7 +306,7 @@ async function main() {
         title: 'Advanced Microprocessor Design',
         subtitle: 'Design and implement custom processors',
         description: 'Advanced course covering pipelining, superscalar processors, branch prediction, and out-of-order execution. For serious hardware engineers.',
-        priceCents: 12999, // $129.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
         category: 'Microprocessors',
@@ -322,7 +322,7 @@ async function main() {
         title: 'Embedded Linux Systems',
         subtitle: 'Linux kernel development for embedded devices',
         description: 'Learn embedded Linux development, kernel customization, device drivers, and real-time systems programming.',
-        priceCents: 8999, // $89.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
         category: 'Embedded Systems',
@@ -338,7 +338,7 @@ async function main() {
         title: 'Parallel Processing and Multi-Core Systems',
         subtitle: 'Programming and optimizing multi-core processors',
         description: 'Master parallel programming, multi-threading, GPU computing, and distributed systems. Essential for modern high-performance computing.',
-        priceCents: 9999, // $99.99
+  priceCents: 0, // Free
         status: 'PUBLISHED',
         thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
         category: 'Computer Architecture',
@@ -480,7 +480,7 @@ async function main() {
   }
 
   // Create enrollments (20-30 enrollments across different users and courses)
-  const enrollments = []
+  const enrollments: { userId: string; courseId: string }[] = []
   for (let i = 0; i < 25; i++) {
     const student = students[Math.floor(Math.random() * students.length)]
     const course = courses[Math.floor(Math.random() * courses.length)]
@@ -518,16 +518,16 @@ async function main() {
                 userId: enrollment.userId,
                 lessonId: lesson.id,
                 completed: true,
-                positionSec: lesson.durationSec,
+                  positionSec: lesson.durationSec ?? undefined,
               },
             })
-          } else if (Math.random() < 0.2) { // 20% chance to partially complete
+            } else if (Math.random() < 0.2) { // 20% chance to partially complete
             await prisma.progress.create({
               data: {
                 userId: enrollment.userId,
                 lessonId: lesson.id,
                 completed: false,
-                positionSec: Math.floor(lesson.durationSec * Math.random()),
+                  positionSec: lesson.durationSec ? Math.floor(lesson.durationSec * Math.random()) : undefined,
               },
             })
           }

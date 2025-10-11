@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Search, Star, Users, Clock, Play, Award, BookOpen, Shield } from 'lucide-react'
+import ClientImage from '@/components/ClientImage'
 
 interface Course {
   id: string
@@ -55,18 +56,7 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Promotional Banner */}
-      <div className="bg-gradient-to-r from-cyan-100 to-blue-100 py-3">
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <span className="text-sm font-medium text-gray-800">New-learner offer | Courses from $9.99</span>
-            <span className="text-xs text-gray-600">Ends in 5h 59m 40s</span>
-          </div>
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white text-sm px-4 py-1 rounded-full">
-            Click to redeem
-          </Button>
-        </div>
-      </div>
+      {/* Promotional banner intentionally removed for free courses */}
 
       {/* Hero Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
@@ -86,17 +76,18 @@ export default async function HomePage() {
             <div className="text-center max-w-6xl">
               {/* Main Hero Content */}
               <div>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
                   Master
                   <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
                     CPU Architecture
                   </span>
-                  <span className="block text-4xl md:text-5xl lg:text-6xl text-gray-300 font-light">
-                    Like a Pro
-                  </span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+                <p className="text-2xl md:text-3xl text-white font-semibold mb-4">
+                  All courses are free for college students — start learning today with no cost.
+                </p>
+
+                <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
                   Learn from industry experts. Build real-world projects. Master microprocessors,
                   computer architecture, and embedded systems with hands-on courses.
                 </p>
@@ -120,10 +111,10 @@ export default async function HomePage() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
                 <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-12 py-6 rounded-2xl text-xl font-bold shadow-2xl">
-                  <Link href="/catalog">Start Learning Now</Link>
+                  <Link href="/catalog">Browse Free Courses</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="border-2 border-white/30 text-white hover:bg-white/10 px-12 py-6 rounded-2xl text-xl font-bold backdrop-blur-sm">
-                  <Link href="/auth/signup">Free Trial</Link>
+                  <Link href="/auth/signup">Sign up (Free)</Link>
                 </Button>
               </div>
 
@@ -167,8 +158,8 @@ export default async function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.slice(0, 6).map((course, index) => (
               <Card key={course.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="aspect-video bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center relative">
-                  <Play className="w-16 h-16 text-purple-600" />
+                <div className="aspect-video bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center relative overflow-hidden">
+                      <ClientImage src={course.thumbnailUrl} alt={course.title} className="w-full h-full object-cover" />
                   <Badge className="absolute top-4 right-4 bg-purple-600 text-white">
                     {course.category}
                   </Badge>
@@ -198,9 +189,7 @@ export default async function HomePage() {
                         </span>
                       </div>
                     </div>
-                    <span className="text-lg font-bold text-purple-600">
-                      ${(course.priceCents / 100).toFixed(2)}
-                    </span>
+                    {/* price removed for free courses */}
                   </div>
                   <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                     <div className="flex items-center">
@@ -257,7 +246,7 @@ export default async function HomePage() {
       <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose CPU Online?</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose CPU Online Courses?</h2>
             <p className="text-xl text-gray-600">The best platform for mastering computer architecture</p>
           </div>
 

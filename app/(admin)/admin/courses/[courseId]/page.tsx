@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import ClientImage from '@/components/ClientImage'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
@@ -121,7 +122,7 @@ export default function EditCoursePage() {
         <Tabs defaultValue="basic" className="w-full">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="basic">Basic Info</TabsTrigger>
-            <TabsTrigger value="curriculum">Curriculum</TabsTrigger>
+            <TabsTrigger value="curriculum">Content</TabsTrigger>
           </TabsList>
           
           <TabsContent value="basic">
@@ -181,11 +182,9 @@ export default function EditCoursePage() {
                 <div className="space-y-2">
                   <Label htmlFor="thumbnail">Thumbnail</Label>
                   <Input id="thumbnail" type="file" accept="image/*" onChange={(e) => setThumbnailFile(e.target.files?.[0] || null)} />
-                  {course.thumbnailUrl && (
-                    <div className="mt-2">
-                      <img src={course.thumbnailUrl} alt="Thumbnail" className="w-48 rounded" />
-                    </div>
-                  )}
+                  <div className="mt-2">
+                    <ClientImage src={course.thumbnailUrl} alt="Thumbnail" className="w-48 rounded" />
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <Label>Status</Label>
