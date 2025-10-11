@@ -49,68 +49,30 @@ export default function CoursesPage() {
   const [statusFilter, setStatusFilter] = useState('all')
 
   useEffect(() => {
-    // Mock data for now - replace with actual API call
-    const mockCourses: Course[] = [
-      {
-        id: '1',
-        title: 'Introduction to Web Development',
-        subtitle: 'Learn the basics of HTML, CSS, and JavaScript',
-        description: 'A comprehensive course covering the fundamentals of web development.',
-        thumbnailUrl: null,
-        slug: 'introduction-to-web-development',
-        status: 'PUBLISHED',
-        level: 'BEGINNER',
-        language: 'English',
-        category: 'Programming',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        createdById: '1',
-        sections: [
-          {
-            id: '1',
-            title: 'Getting Started',
-            lessons: [
-              { id: '1', title: 'Introduction', slug: 'introduction', durationSec: 300, freePreview: true },
-              { id: '2', title: 'Setting up your environment', slug: 'setup', durationSec: 600, freePreview: false }
-            ]
+    const fetchCourses = async () => {
+      try {
+        setLoading(true)
+        const res = await fetch('/api/courses')
+        if (!res.ok) {
+          if (res.status === 401) {
+            console.warn('Unauthorized to list courses')
+            setCourses([])
+            return
           }
-        ],
-        enrollments: [{ id: '1' }, { id: '2' }],
-        createdBy: { name: 'John Doe' }
-      },
-      {
-        id: '2',
-        title: 'Advanced React Patterns',
-        subtitle: 'Master modern React development techniques',
-        description: 'Deep dive into advanced React patterns and best practices.',
-        thumbnailUrl: null,
-        slug: 'advanced-react-patterns',
-        status: 'DRAFT',
-        level: 'INTERMEDIATE',
-        language: 'English',
-        category: 'Programming',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        createdById: '1',
-        sections: [
-          {
-            id: '2',
-            title: 'Advanced Hooks',
-            lessons: [
-              { id: '3', title: 'Custom Hooks', slug: 'custom-hooks', durationSec: 900, freePreview: true },
-              { id: '4', title: 'Context API', slug: 'context-api', durationSec: 1200, freePreview: false }
-            ]
-          }
-        ],
-        enrollments: [{ id: '3' }, { id: '4' }, { id: '5' }],
-        createdBy: { name: 'Jane Smith' }
+          throw new Error('Failed to fetch courses')
+        }
+
+        const data: Course[] = await res.json()
+        setCourses(data)
+      } catch (err) {
+        console.error('Error fetching courses:', err)
+        setCourses([])
+      } finally {
+        setLoading(false)
       }
-    ]
-    
-    setTimeout(() => {
-      setCourses(mockCourses)
-      setLoading(false)
-    }, 1000)
+    }
+
+    fetchCourses()
   }, [])
 
   const getStatusBadge = (status: string) => {

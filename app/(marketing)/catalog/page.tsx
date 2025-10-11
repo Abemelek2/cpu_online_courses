@@ -223,12 +223,12 @@ export default function CatalogPage() {
             
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-700">Category</label>
-              <Select value={category} onValueChange={setCategory}>
+              <Select value={category} onValueChange={(v) => setCategory(v === '__all__' ? '' : v)}>
                 <SelectTrigger className="rounded-xl">
                   <SelectValue placeholder="All Categories" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Categories</SelectItem>
+                  <SelectItem value="__all__">All Categories</SelectItem>
                   <SelectItem value="Computer Architecture">Computer Architecture</SelectItem>
                   <SelectItem value="Embedded Systems">Embedded Systems</SelectItem>
                   <SelectItem value="Assembly Programming">Assembly Programming</SelectItem>
@@ -242,12 +242,12 @@ export default function CatalogPage() {
             
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-700">Level</label>
-              <Select value={level} onValueChange={setLevel}>
+              <Select value={level} onValueChange={(v) => setLevel(v === '__all__' ? '' : v)}>
                 <SelectTrigger className="rounded-xl">
                   <SelectValue placeholder="All Levels" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Levels</SelectItem>
+                  <SelectItem value="__all__">All Levels</SelectItem>
                   <SelectItem value="Beginner">Beginner</SelectItem>
                   <SelectItem value="Intermediate">Intermediate</SelectItem>
                   <SelectItem value="Advanced">Advanced</SelectItem>
