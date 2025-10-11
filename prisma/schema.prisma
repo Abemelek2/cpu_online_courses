@@ -1,0 +1,154 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id             String       @id @default(cuid())
+  email          String       @unique
+  name           String?
+  image          String?
+  password       String
+  role           Role         @default(STUDENT)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  createdCourses Course[]     @relation("CourseCreator")
+  enrollments    Enrollment[]
+  progress       Progress[]
+  reviews        Review[]
+
+  @@map("users")
+}
+
+model Course {
+  id           String       @id @default(cuid())
+  slug         String       @unique
+  title        String
+  subtitle     String?
+  description  String?
+  priceCents   Int          @default(0)
+  status       CourseStatus @default(DRAFT)
+  thumbnailUrl String?
+  category     String?
+  level        String?
+  language     String?
+  createdById  String
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  courseTags   CourseTag[]
+  createdBy    User         @relation("CourseCreator", fields: [createdById], references: [id])
+  enrollments  Enrollment[]
+  reviews      Review[]
+  sections     Section[]
+
+  @@map("courses")
+}
+
+model Section {
+  id       String   @id @default(cuid())
+  title    String
+  order    Int
+  courseId String
+  lessons  Lesson[]
+  course   Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@map("sections")
+}
+
+model Lesson {
+  id          String     @id @default(cuid())
+  title       String
+  slug        String
+  order       Int
+  videoUrl    String?
+  durationSec Int?
+  freePreview Boolean    @default(false)
+  sectionId   String
+  section     Section    @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  progress    Progress[]
+
+  @@unique([sectionId, slug])
+  @@map("lessons")
+}
+
+model Enrollment {
+  id        String   @id @default(cuid())
+  userId    String
+  courseId  String
+  createdAt DateTime @default(now())
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@map("enrollments")
+}
+
+model Progress {
+  id          String   @id @default(cuid())
+  userId      String
+  lessonId    String
+  completed   Boolean  @default(false)
+  positionSec Int      @default(0)
+  updatedAt   DateTime @updatedAt
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@map("progress")
+}
+
+model Review {
+  id        String       @id @default(cuid())
+  userId    String
+  courseId  String
+  rating    Int
+  comment   String?
+  status    ReviewStatus @default(VISIBLE)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  course    Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@map("reviews")
+}
+
+model Tag {
+  id         String      @id @default(cuid())
+  name       String      @unique
+  createdAt  DateTime    @default(now())
+  courseTags CourseTag[]
+
+  @@map("tags")
+}
+
+model CourseTag {
+  id       String @id @default(cuid())
+  courseId String
+  tagId    String
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  tag      Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@unique([courseId, tagId])
+  @@map("course_tags")
+}
+
+enum Role {
+  ADMIN
+  STUDENT
+}
+
+enum CourseStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum ReviewStatus {
+  VISIBLE
+  HIDDEN
+}
