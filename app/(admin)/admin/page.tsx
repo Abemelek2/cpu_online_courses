@@ -47,11 +47,16 @@ export default function AdminDashboard() {
     const fetchStats = async () => {
       try {
         setLoading(true)
-        const response = await fetch('/api/admin/stats')
+  const response = await fetch('/api/admin/stats', { credentials: 'include' })
         
         if (!response.ok) {
           if (response.status === 401) {
+            // Not authenticated as admin. Prompt user to sign in.
             setError('Unauthorized - Admin access required')
+            // Optionally redirect to sign-in page after a short delay
+            setTimeout(() => {
+              window.location.href = '/auth/signin'
+            }, 1200)
             return
           }
           throw new Error('Failed to fetch stats')
