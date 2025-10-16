@@ -162,7 +162,7 @@ export default function CatalogPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Discover amazing CPU and computer architecture courses
+              Discover a wide range of Computer Science courses
             </motion.p>
             
             {/* Stats */}
@@ -230,13 +230,13 @@ export default function CatalogPage() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="__all__">All Categories</SelectItem>
-                  <SelectItem value="Computer Architecture">Computer Architecture</SelectItem>
-                  <SelectItem value="Embedded Systems">Embedded Systems</SelectItem>
-                  <SelectItem value="Assembly Programming">Assembly Programming</SelectItem>
-                  <SelectItem value="Microcontrollers">Microcontrollers</SelectItem>
-                  <SelectItem value="Digital Design">Digital Design</SelectItem>
-                  <SelectItem value="System Programming">System Programming</SelectItem>
-                  <SelectItem value="Performance Optimization">Performance Optimization</SelectItem>
+                  <SelectItem value="Algorithms">Algorithms</SelectItem>
+                  <SelectItem value="Data Structures">Data Structures</SelectItem>
+                  <SelectItem value="Operating Systems">Operating Systems</SelectItem>
+                  <SelectItem value="Databases">Databases</SelectItem>
+                  <SelectItem value="Machine Learning">Machine Learning</SelectItem>
+                  <SelectItem value="Web Development">Web Development</SelectItem>
+                  <SelectItem value="Computer Networks">Computer Networks</SelectItem>
                 </SelectContent>
               </Select>
             </div>

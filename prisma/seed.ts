@@ -137,119 +137,159 @@ async function main() {
     }),
   ])
 
-  // Create CPU-themed tags
+  // Create a broader Computer Science tag set
   const tags = await Promise.all([
-    prisma.tag.create({ data: { name: 'CPU Architecture' } }),
-    prisma.tag.create({ data: { name: 'Microprocessors' } }),
-    prisma.tag.create({ data: { name: 'Assembly Language' } }),
+    prisma.tag.create({ data: { name: 'Algorithms' } }),
+    prisma.tag.create({ data: { name: 'Data Structures' } }),
+    prisma.tag.create({ data: { name: 'Operating Systems' } }),
+    prisma.tag.create({ data: { name: 'Databases' } }),
+    prisma.tag.create({ data: { name: 'Machine Learning' } }),
+    prisma.tag.create({ data: { name: 'Web Development' } }),
+    prisma.tag.create({ data: { name: 'Computer Networks' } }),
+    prisma.tag.create({ data: { name: 'Security' } }),
+    prisma.tag.create({ data: { name: 'Compilers' } }),
+    prisma.tag.create({ data: { name: 'Software Engineering' } }),
+    prisma.tag.create({ data: { name: 'Datapaths & Architecture' } }),
     prisma.tag.create({ data: { name: 'Embedded Systems' } }),
-    prisma.tag.create({ data: { name: 'Computer Organization' } }),
-    prisma.tag.create({ data: { name: 'ARM Processors' } }),
-    prisma.tag.create({ data: { name: 'x86 Architecture' } }),
-    prisma.tag.create({ data: { name: 'RISC-V' } }),
-    prisma.tag.create({ data: { name: 'Microcontrollers' } }),
-    prisma.tag.create({ data: { name: 'Digital Design' } }),
-    prisma.tag.create({ data: { name: 'System Programming' } }),
-    prisma.tag.create({ data: { name: 'Performance Optimization' } }),
   ])
 
-  // Create comprehensive CPU-themed courses
+  // Create a diverse set of computer science courses
   const courses = await Promise.all([
-    // Course 1: Complete CPU Architecture Masterclass
     prisma.course.create({
       data: {
-        slug: 'complete-cpu-architecture-masterclass',
-        title: 'Complete CPU Architecture Masterclass',
-        subtitle: 'From microprocessors to advanced computer systems',
-        description: 'Master the fundamentals of CPU design, instruction sets, and computer architecture. Learn about modern processors, pipelining, caching, and performance optimization.',
-  priceCents: 0, // Free
+        slug: 'introduction-to-algorithms',
+        title: 'Introduction to Algorithms',
+        subtitle: 'Core algorithms and problem-solving techniques',
+        description: 'Covers sorting, searching, graph algorithms, dynamic programming, and algorithmic analysis (Big-O). Designed for both beginners and those preparing for interviews.',
+        priceCents: 0,
         status: 'PUBLISHED',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
-        category: 'Computer Architecture',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1526378724496-4f9f3b4a6adf?w=400&h=300&fit=crop',
+        category: 'Algorithms',
         level: 'Intermediate',
         language: 'English',
         createdById: instructors[0].id,
-      },
+      }
     }),
-    // Course 2: ARM Processor Fundamentals
     prisma.course.create({
       data: {
-        slug: 'arm-processor-fundamentals',
-        title: 'ARM Processor Fundamentals',
-        subtitle: 'Learn ARM assembly and embedded systems programming',
-        description: 'Comprehensive guide to ARM architecture, assembly language programming, and embedded systems development. Perfect for mobile and IoT development.',
-  priceCents: 0, // Free
+        slug: 'data-structures-and-design',
+        title: 'Data Structures & Design',
+        subtitle: 'Essential data structures and when to use them',
+        description: 'Arrays, linked lists, trees, heaps, hash maps, and design patterns for building efficient systems.',
+        priceCents: 0,
         status: 'PUBLISHED',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
-        category: 'Embedded Systems',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop',
+        category: 'Data Structures',
         level: 'Beginner',
         language: 'English',
         createdById: instructors[1].id,
-      },
+      }
     }),
-    // Course 3: x86 Assembly Language Programming
     prisma.course.create({
       data: {
-        slug: 'x86-assembly-language-programming',
-        title: 'x86 Assembly Language Programming',
-        subtitle: 'Master low-level programming and system optimization',
-        description: 'Learn x86 assembly language from scratch. Understand registers, memory management, and system-level programming for maximum performance.',
-  priceCents: 0, // Free
+        slug: 'operating-systems-principles',
+        title: 'Operating Systems Principles',
+        subtitle: 'Concurrency, memory management, and kernel internals',
+        description: 'Study process management, scheduling, virtual memory, file systems, and kernel architecture. Hands-on with small OS projects.',
+        priceCents: 0,
         status: 'PUBLISHED',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
-        category: 'Assembly Programming',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop',
+        category: 'Operating Systems',
         level: 'Advanced',
         language: 'English',
         createdById: instructors[2].id,
-      },
+      }
     }),
-    // Course 4: Microcontroller Programming with Arduino
     prisma.course.create({
       data: {
-        slug: 'microcontroller-programming-arduino',
-        title: 'Microcontroller Programming with Arduino',
-        subtitle: 'Build real-world embedded projects',
-        description: 'Learn microcontroller programming using Arduino. Build IoT devices, sensors, and automation systems with hands-on projects.',
-  priceCents: 0, // Free
+        slug: 'database-systems',
+        title: 'Database Systems',
+        subtitle: 'Relational databases, SQL, and indexing',
+        description: 'Design and implement schemas, learn SQL, transactions, indexing, and basic query optimization.',
+        priceCents: 0,
         status: 'PUBLISHED',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
-        category: 'Microcontrollers',
-        level: 'Beginner',
-        language: 'English',
-        createdById: instructors[3].id,
-      },
-    }),
-    // Course 5: RISC-V Architecture and Implementation
-    prisma.course.create({
-      data: {
-        slug: 'risc-v-architecture-implementation',
-        title: 'RISC-V Architecture and Implementation',
-        subtitle: 'Open-source processor design and development',
-        description: 'Explore RISC-V open-source instruction set architecture. Learn processor design, verification, and implementation techniques.',
-  priceCents: 0, // Free
-        status: 'PUBLISHED',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
-        category: 'Computer Architecture',
-        level: 'Advanced',
-        language: 'English',
-        createdById: instructors[0].id,
-      },
-    }),
-    // Course 6: Computer Organization and Design
-    prisma.course.create({
-      data: {
-        slug: 'computer-organization-design',
-        title: 'Computer Organization and Design',
-        subtitle: 'Understanding how computers work at the hardware level',
-        description: 'Deep dive into computer organization, memory hierarchy, I/O systems, and performance analysis. Essential for system programmers.',
-  priceCents: 0, // Free
-        status: 'PUBLISHED',
-        thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
-        category: 'Computer Organization',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=300&fit=crop',
+        category: 'Databases',
         level: 'Intermediate',
         language: 'English',
+        createdById: instructors[3].id,
+      }
+    }),
+    prisma.course.create({
+      data: {
+        slug: 'machine-learning-basics',
+        title: 'Machine Learning Basics',
+        subtitle: 'Supervised and unsupervised learning fundamentals',
+        description: 'Covers linear models, SVMs, decision trees, clustering, and an introduction to neural networks and model evaluation.',
+        priceCents: 0,
+        status: 'PUBLISHED',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop',
+        category: 'Machine Learning',
+        level: 'Beginner',
+        language: 'English',
+        createdById: instructors[0].id,
+      }
+    }),
+    prisma.course.create({
+      data: {
+        slug: 'web-development-fullstack',
+        title: 'Web Development — Full Stack',
+        subtitle: 'Frontend, backend, and deployment basics',
+        description: 'Build modern web apps with React/Next.js, Node.js, APIs, and deployment best practices.',
+        priceCents: 0,
+        status: 'PUBLISHED',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop',
+        category: 'Web Development',
+        level: 'Beginner',
+        language: 'English',
         createdById: instructors[1].id,
-      },
+      }
+    }),
+    prisma.course.create({
+      data: {
+        slug: 'computer-networks',
+        title: 'Computer Networks',
+        subtitle: 'Networking fundamentals, TCP/IP, and sockets',
+        description: 'Cover network layers, protocols, routing, and practical socket programming exercises.',
+        priceCents: 0,
+        status: 'PUBLISHED',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=400&h=300&fit=crop',
+        category: 'Computer Networks',
+        level: 'Intermediate',
+        language: 'English',
+        createdById: instructors[2].id,
+      }
+    }),
+    prisma.course.create({
+      data: {
+        slug: 'cybersecurity-fundamentals',
+        title: 'Cybersecurity Fundamentals',
+        subtitle: 'Security principles, threat modelling and mitigation',
+        description: 'Introductory security course covering cryptography basics, security models, common vulnerabilities, and secure coding practices.',
+        priceCents: 0,
+        status: 'PUBLISHED',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?w=400&h=300&fit=crop',
+        category: 'Security',
+        level: 'Intermediate',
+        language: 'English',
+        createdById: instructors[3].id,
+      }
+    }),
+    // Keep a CPU architecture course included as part of the broader catalog
+    prisma.course.create({
+      data: {
+        slug: 'cpu-architecture-essentials',
+        title: 'CPU Architecture Essentials',
+        subtitle: 'Key concepts in modern processor design',
+        description: 'Covers instruction sets, pipelining, caches, and microarchitecture tradeoffs. Included as part of core CS curriculum.',
+        priceCents: 0,
+        status: 'PUBLISHED',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
+        category: 'Computer Architecture',
+        level: 'Intermediate',
+        language: 'English',
+        createdById: instructors[0].id,
+      }
     }),
     // Course 7: Digital Design and FPGA Programming
     prisma.course.create({
@@ -351,65 +391,41 @@ async function main() {
 
   // Create course tags
   const courseTags = [
-    // Course 1: CPU Architecture
-    { courseId: courses[0].id, tagId: tags[0].id }, // CPU Architecture
-    { courseId: courses[0].id, tagId: tags[4].id }, // Computer Organization
-    { courseId: courses[0].id, tagId: tags[11].id }, // Performance Optimization
-    
-    // Course 2: ARM Processors
-    { courseId: courses[1].id, tagId: tags[5].id }, // ARM Processors
-    { courseId: courses[1].id, tagId: tags[2].id }, // Assembly Language
-    { courseId: courses[1].id, tagId: tags[3].id }, // Embedded Systems
-    
-    // Course 3: x86 Assembly
-    { courseId: courses[2].id, tagId: tags[6].id }, // x86 Architecture
-    { courseId: courses[2].id, tagId: tags[2].id }, // Assembly Language
-    { courseId: courses[2].id, tagId: tags[10].id }, // System Programming
-    
-    // Course 4: Arduino
-    { courseId: courses[3].id, tagId: tags[8].id }, // Microcontrollers
-    { courseId: courses[3].id, tagId: tags[3].id }, // Embedded Systems
-    { courseId: courses[3].id, tagId: tags[9].id }, // Digital Design
-    
-    // Course 5: RISC-V
-    { courseId: courses[4].id, tagId: tags[7].id }, // RISC-V
-    { courseId: courses[4].id, tagId: tags[0].id }, // CPU Architecture
-    { courseId: courses[4].id, tagId: tags[9].id }, // Digital Design
-    
-    // Course 6: Computer Organization
-    { courseId: courses[5].id, tagId: tags[4].id }, // Computer Organization
-    { courseId: courses[5].id, tagId: tags[0].id }, // CPU Architecture
-    { courseId: courses[5].id, tagId: tags[10].id }, // System Programming
-    
-    // Course 7: Digital Design
-    { courseId: courses[6].id, tagId: tags[9].id }, // Digital Design
-    { courseId: courses[6].id, tagId: tags[1].id }, // Microprocessors
-    { courseId: courses[6].id, tagId: tags[0].id }, // CPU Architecture
-    
-    // Course 8: System Programming
-    { courseId: courses[7].id, tagId: tags[10].id }, // System Programming
-    { courseId: courses[7].id, tagId: tags[4].id }, // Computer Organization
-    { courseId: courses[7].id, tagId: tags[11].id }, // Performance Optimization
-    
-    // Course 9: Performance Optimization
-    { courseId: courses[8].id, tagId: tags[11].id }, // Performance Optimization
-    { courseId: courses[8].id, tagId: tags[0].id }, // CPU Architecture
-    { courseId: courses[8].id, tagId: tags[10].id }, // System Programming
-    
-    // Course 10: Advanced Microprocessor
-    { courseId: courses[9].id, tagId: tags[1].id }, // Microprocessors
-    { courseId: courses[9].id, tagId: tags[0].id }, // CPU Architecture
-    { courseId: courses[9].id, tagId: tags[11].id }, // Performance Optimization
-    
-    // Course 11: Embedded Linux
-    { courseId: courses[10].id, tagId: tags[3].id }, // Embedded Systems
-    { courseId: courses[10].id, tagId: tags[10].id }, // System Programming
-    { courseId: courses[10].id, tagId: tags[8].id }, // Microcontrollers
-    
-    // Course 12: Parallel Processing
-    { courseId: courses[11].id, tagId: tags[0].id }, // CPU Architecture
-    { courseId: courses[11].id, tagId: tags[11].id }, // Performance Optimization
-    { courseId: courses[11].id, tagId: tags[10].id }, // System Programming
+    // Course 0: Introduction to Algorithms
+    { courseId: courses[0].id, tagId: tags[0].id }, // Algorithms
+    { courseId: courses[0].id, tagId: tags[1].id }, // Data Structures
+
+    // Course 1: Data Structures & Design
+    { courseId: courses[1].id, tagId: tags[1].id }, // Data Structures
+    { courseId: courses[1].id, tagId: tags[9].id }, // Software Engineering
+
+    // Course 2: Operating Systems Principles
+    { courseId: courses[2].id, tagId: tags[2].id }, // Operating Systems
+    { courseId: courses[2].id, tagId: tags[10].id }, // Datapaths & Architecture
+
+    // Course 3: Database Systems
+    { courseId: courses[3].id, tagId: tags[3].id }, // Databases
+    { courseId: courses[3].id, tagId: tags[9].id }, // Software Engineering
+
+    // Course 4: Machine Learning Basics
+    { courseId: courses[4].id, tagId: tags[4].id }, // Machine Learning
+    { courseId: courses[4].id, tagId: tags[1].id }, // Data Structures
+
+    // Course 5: Web Development — Full Stack
+    { courseId: courses[5].id, tagId: tags[5].id }, // Web Development
+    { courseId: courses[5].id, tagId: tags[9].id }, // Software Engineering
+
+    // Course 6: Computer Networks
+    { courseId: courses[6].id, tagId: tags[6].id }, // Computer Networks
+    { courseId: courses[6].id, tagId: tags[9].id }, // Software Engineering
+
+    // Course 7: Cybersecurity Fundamentals
+    { courseId: courses[7].id, tagId: tags[7].id }, // Security
+    { courseId: courses[7].id, tagId: tags[9].id }, // Software Engineering
+
+    // Course 8: CPU Architecture Essentials
+    { courseId: courses[8].id, tagId: tags[10].id }, // Datapaths & Architecture
+    { courseId: courses[8].id, tagId: tags[11].id }, // Embedded Systems
   ]
 
   await prisma.courseTag.createMany({ data: courseTags })

@@ -79,7 +79,7 @@ export default async function HomePage() {
                 <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
                   Master
                   <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
-                    CPU Architecture
+                    Computer Science
                   </span>
                 </h1>
 
@@ -99,7 +99,7 @@ export default async function HomePage() {
                   <Search className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 w-8 h-8" />
                   <input
                     type="text"
-                    placeholder="Search for CPU courses, microprocessors, computer architecture..."
+                    placeholder="Search for Computer Science courses, algorithms, systems, ML..."
                     className="w-full pl-16 pr-32 py-6 text-xl border-2 border-white/20 rounded-2xl focus:ring-4 focus:ring-purple-500/50 focus:border-transparent bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 hover:bg-white/20 transition-all duration-300"
                   />
                   <Button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-2xl">
@@ -151,7 +151,7 @@ export default async function HomePage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Trending CPU Courses</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Trending Computer Science Courses</h2>
             <p className="text-xl text-gray-600">Most popular courses this week</p>
           </div>
 
@@ -217,16 +217,16 @@ export default async function HomePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Explore CPU Learning Paths</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Explore Computer Science Learning Paths</h2>
             <p className="text-xl text-gray-600">Structured learning tracks for every skill level</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Microprocessors', description: 'Learn the fundamentals of CPU design', icon: '🔧', color: 'from-blue-500 to-cyan-500' },
-              { title: 'Assembly Language', description: 'Master low-level programming', icon: '⚡', color: 'from-purple-500 to-pink-500' },
-              { title: 'Embedded Systems', description: 'Build real-world applications', icon: '🏗️', color: 'from-green-500 to-teal-500' },
-              { title: 'Computer Architecture', description: 'Advanced system design concepts', icon: '🎯', color: 'from-orange-500 to-red-500' }
+              { title: 'Algorithms', description: 'Core algorithmic techniques', icon: '�', color: 'from-blue-500 to-cyan-500' },
+              { title: 'Data Structures', description: 'Efficient data organization', icon: '📚', color: 'from-purple-500 to-pink-500' },
+              { title: 'Machine Learning', description: 'Models and practical ML', icon: '🤖', color: 'from-green-500 to-teal-500' },
+              { title: 'Systems & Architecture', description: 'OS, architecture, and performance', icon: '🖥️', color: 'from-orange-500 to-red-500' }
             ].map((category, index) => (
               <div key={category.title} className="group cursor-pointer">
                 <Card className="p-6 text-center hover:shadow-xl transition-all duration-300 group-hover:scale-105">
@@ -247,7 +247,7 @@ export default async function HomePage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose CPU Online Courses?</h2>
-            <p className="text-xl text-gray-600">The best platform for mastering computer architecture</p>
+            <p className="text-xl text-gray-600">The best platform for mastering a wide range of computer science topics</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -272,7 +272,7 @@ export default async function HomePage() {
       <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Master CPU Architecture?
+            Ready to Master Computer Science?
           </h2>
           <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
             Join thousands of students already learning with our comprehensive courses and expert instructors.
